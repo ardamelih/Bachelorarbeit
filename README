@@ -1,0 +1,2 @@
+This Bachelor Thesis offers the prototype of a user data tracking service on a web app. This service is embedded in the JavaScript of the HTML-Pages 
+Aufgabe1, Aufgabe2, Aufgabe3, which are called script1, script2 and script3 respectively. The pages were serves using Python Flask.
