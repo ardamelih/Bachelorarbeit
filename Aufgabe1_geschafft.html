@@ -1,0 +1,20 @@
+
+<!DOCTYPE html  >
+<html lang="en" style="background:  #fffff0;">
+<head>
+    <meta charset="UTF-8">
+            <script type=text/javascript src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title>Title</title>
+</head>
+<body onwheel ="scrollFunction()" >
+    <div style="padding-left: 400px;padding-top: 200px;padding-right: 400px;"><p style="    line-height: 130%; padding-left: 10px;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;background: white; border-radius: 15px; border-style: groove"><font face="verdana" color="black" size="3">
+Sie sind mit der ersten Aufgabe fertig! Klicken Sie jetzt bitte auf die "weiter" Taste unten um mit der zweiten Aufgabe anzufangen.</font>
+<br><br><button type="button" id="weiter" value="weiter"  style="font-size : 26px; width: 9%; height: 36px; border-radius: 7px"
+                 onclick="window.location.href='{{ url_for( 'Aufgabenstellung2' ) }}'">weiter</button></p></div>
+            <script src="{{url_for('static', filename='aufgabe-geschafft1.js')}}" data-turbolinks-track="reload"></script>
+
+
+</body>
+</html>
+

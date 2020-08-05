@@ -1,0 +1,57 @@
+
+<!DOCTYPE html  >
+<html lang="en" style="background:  #fffff0;">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>Title</title>
+</head>
+<body >
+    <div style="padding-left: 200px;padding-top: 25px;padding-right: 200px;"><p style="    line-height: 130%; padding-left: 10px;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;background: white; border-radius: 15px; border-style: groove"><font face="verdana" color="black" size="3">Guten Tag!<br><br>
+Danke für Ihr Interesse an diesem Test. Dieser Test ist im Rahmen der Bachelorarbeit "Design and Implementation of a User Behaviour Tracking Service for the Community App meinDorf55+" an der Fernuniversität Hagen entstanden. Im folgenden wird Ihnen in drei verschiedenen Aufgaben eine grafische Benutzerschnittstelle der Community-Applikation <i>meinDorf55+</i> präsentiert.
+        Die Zielgruppe von <i>meinDorf55+</i> sind Senior*innen im Nassauer Land in Nordrhein Westfalen, für die die App einen virtuellen Begegnungsraum schafft, sowie die gegenseitige Unterstützung und Vernetzung der Senior*innen in der genannten Region fördert.
+        Die zu testende Benutzerschnittstelle enthält eine Hauptfunktion, die es erlaubt Anzeigen zu erstellen bzw.  etwas zu "posten".
+        Zweck dieses Tests ist  , zu beobachten, wie Nutzer*innen der App mit der Benutzerschnittstelle und den darin angebotenen Funktionalitäten umgehen und interagieren. Für eine optimale grafische Darstellung der Oberfläche empfehlen wir Ihnen den Test auf einem der folgenden Browsern durchzuführen: Google chrome, Mozilla Firefox, Opera, Microsoft Edge. Für die Teilnahme am Test benötigen Sie einen Computer und eine Maus.
+<br>
+<br>
+Vor jeder Aufgabe werden Sie eine Aufgabenstellung bekommen. Bitte lesen Sie diese aufmerksam durch, bevor Sie mit der Aufgabe anfangen.
+Bei den Aufgaben gibt es keine richtigen oder falschen Antworten bzw. Verhaltensweisen. Es wird von Ihnen nicht erwartet, dass Sie jede Aufgabe unbedingt wie beschrieben umsetzen. Uns ist wichtig zu sehen, wie Sie mit der Benutzerschnittstelle klarkommen. Deshalb gilt Folgendes bei jeder Aufgabe: Wenn Sie merken, dass Sie mit der Aufgabe oder mit der Benutzerschnittstelle Schwierigkeiten haben bzw. einen Teil der Aufgabe nicht verstehen oder nicht umsetzen können, sollten Sie mit der Aufgabe aufhören und mit der nächsten Aufgabe weitermachen. Dafür klicken Sie einfach oben links oder unten rechts auf "Abbrechen".
+         Bitte klicken Sie nur dann auf "Speichern", wenn Sie eine Aufgabe, wie in der Aufgabenstellung beschrieben, durchgeführt haben. In diesem Kontext, "Speichern" bedeutet, dass Sie Ihre Anzeige posten wollen und "Abbrechen" bedeutet, dass Sie Ihre Anzeige nicht posten wollen. Alle Texteingaben in Ihrer Anzeige sowie hochgeladene Dateien werden am Ende nach einem Klick auf "Abbrechen" oder "Speichern" gelöscht.
+
+<br><br>
+
+Wenn Sie während der Aufgabe die Aufgabenstellung noch Mal lesen möchten, klicken Sie dafür bitte auf den mit „Aufgabe“ beschrifteten Button am linken Bildschirmrand in der Mitte auf der Benutzerschnittstelle. Sehen Sie unbedingt davon ab über den „zurück“ Button auf dem Browser zurückzugehen.
+        
+        <br><br>
+Bitte planen Sie pro Aufgabe 5 und  für alle drei Aufgaben ca. 15 Minuten Zeit ein. Es kann natürlich sein, dass Sie je nach Ihrer Schnelligkeit weniger oder mehr Zeit brauchen.     
+                <br><br>
+Während des Tests werden eine Reihe von Daten, wie IP Adresse, Mausklicke und Mauskoordinaten erhoben. Bitte lesen Sie dazu die Datenschutz- und Einverständniserklärung unten, bevor Sie den Test beginnen:
+                <br>
+                <br>
+        <a href="{{url_for('static', filename='Datenschutz-Einverstaendniserklaerung.pdf')}}" download>
+        <button type="button" id="DatenschutzBttn" value="weiter"  style="font-size : 15px; width: 22%; height: 39px; border-radius: 7px">Datenschutz-Einverständniserklärung.pdf</button></a> 
+                   <br>                 <br>
+
+            Wenn Sie einverstanden sind und mit dem Test fortsetzen möchten, checken Sie bitte das Kästchen unten:
+<br><br>
+
+                                    <input type="checkbox"  name="offer[secret_author]" id="einverstandenCheckbox" onclick="enableWeiter(this)" style="width:17px; height:17px;">
+                                    <label  id="chiffreCheckboxLbl"> Ich bin einverstanden.</label>
+        <br><br>
+
+Klicken Sie jetzt bitte auf die "weiter" Taste unten um mit der ersten Aufgabe anzufangen.</font>
+<br><br>
+        <button type="button" id="weiter" onclick="showAlert()"  style="font-size : 26px; color: darkgrey;       9%; height: 36px; border-radius: 7px"
+            >weiter</button><a id="weiterFrame" href="{{url_for('Aufgabenstellung1')}}"  >
+            <button type="button2" id="weiter2"  disabled  style=" display: none; font-size : 26px; color: darkgrey;       9%; height: 36px; border-radius: 7px">weiter</button></a>
+        </p></div>
+    
+        <script src="{{url_for('static', filename='introductionscript.js')}}"s data-turbolinks-track="reload"></script>
+        <script type=text/javascript src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    </body>
+</html>
+

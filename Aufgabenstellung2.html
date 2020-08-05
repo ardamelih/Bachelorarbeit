@@ -1,0 +1,25 @@
+
+<!DOCTYPE html  >
+<html lang="en" style="background:  #fffff0;">
+<head>
+    <meta charset="UTF-8">
+            <script type=text/javascript src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <title>Title</title>
+</head>
+<body onwheel ="scrollFunction()"  >
+    <div style="padding-left: 400px;padding-top: 200px;padding-right: 400px;"><p style="    line-height: 130%; padding-left: 10px;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;background: white; border-radius: 15px; border-style: groove"><font face="verdana" color="black" size="3"><b>Aufgabe 2</b><br><br>
+Stellen Sie sich vor, Ihr Fahrrad ist kaputt und Sie suchen ein Leihrad. Bitte überlegen Sie sich, was für einen Anzeigentyp Sie wählen wollen und auch einen passenden Titel. Sie brauchen das Fahrrad relativ dringend und nicht erst ab nächsten Monat. Überlegen Sie deshalb auch, bis wann Ihre Anzeige aktiv sein sollte. Denken Sie auch an passende Kurzbegriffe/Wörter, die Ihre Anzeige zusammenfassen und tragen Sie diese ein. Das Ausfüllen des restlichen Formulars ist komplett freiwillig und Ihnen überlassen. Bitte denken Sie daran, dass Sie bei Schwierigkeiten die Aufgabe abbrechen sollten.
+
+<br><br>
+
+
+
+Klicken Sie jetzt bitte auf die "weiter" Taste unten um mit der Aufgabe anzufangen.</font>
+<br><br><button type="button" id="weiter" value="weiter"  style="font-size : 26px; width: 9%; height: 36px; border-radius: 7px"
+                 onclick="window.location.href='{{ url_for( 'Aufgabe2' ) }}'">weiter</button></p></div>
+            <script src="{{url_for('static', filename='aufgabenstellung2js.js')}}" data-turbolinks-track="reload"></script>
+
+</body>
+</html>
+

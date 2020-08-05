@@ -1,0 +1,1208 @@
+    <!DOCTYPE html>
+    <html xml:lang="de" lang="de">
+
+    <head>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+        <style>
+
+    input[type=range] {
+        position: absolute;
+
+      width: 100%;
+      margin: 3.9px 0;
+    }
+
+    input[type="range"]:focus {
+
+      outline: none;  
+      }
+
+
+    /*Chrome*/
+
+    /*@media screen and (-webkit-min-device-pixel-ratio:0) {*/
+      input[type="range"]{
+
+        -webkit-appearance: none;
+        -moz-apperance: none;
+        border-radius: 11px;
+        height: 11px;
+        background-image: -webkit-gradient(
+            linear,
+            left top,
+            right top,
+            color-stop(0.15, #84b7e3),
+            color-stop(0.15, #DADDe3)
+        );
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none !important;
+        /*background-color: #E9E9E9;*/
+        /*border: 1px solid #CECECE;**/
+
+      box-shadow: 0px 0px 0.5px #000000, 0px 0.6px 1px #0d0d0d;
+      border: 0px solid #000000;
+      width: 20.035px;
+      height: 20px;
+      border-radius: 50px;
+      background: #3072ac;
+      cursor: pointer;
+      margin-top: 0px;  
+    }
+
+    /* FF */
+
+    input[type=range]::-moz-range-track {
+
+      width: 100%;
+      height: 11px;
+      cursor: pointer;
+      box-shadow: 0.2px 0.2px 0px rgba(0, 0, 0, 0), 0px 0px 0.2px rgba(13, 13, 13, 0);
+      background: #DADDe3;
+      border-radius: 1.3px;
+      border: 0px solid #010101;
+    }
+    input[type="range"]::-moz-range-progress {
+      height: 11px;
+      background-color: #84b7e3; 
+    }
+    input[type=range]::-moz-range-thumb {
+      box-shadow: 0px 0px 0.5px #000000, 0px 0px 0px #0d0d0d;
+      border: 0px solid #000000;
+      height: 18.4px;
+      width: 18.4px;
+      border-radius: 50px;
+      background: #3072ac;
+      cursor: pointer;
+    }
+
+    input[type=range]::-ms-track {
+      width: 100%;
+      height: 11px;
+      cursor: pointer;
+      background: transparent;
+      border-color: transparent;
+      color: transparent;
+    }
+    input[type=range]::-ms-fill-lower {
+      background: #84b7e3;
+      border: 0px solid #010101;
+      border-radius: 2.6px;
+      box-shadow: 0.2px 0.2px 0px rgba(0, 0, 0, 0), 0px 0px 0.2px rgba(13, 13, 13, 0);
+    }
+    input[type=range]::-ms-fill-upper {
+      background: #DADDe3;
+      border: 0px solid #010101;
+      border-radius: 2.6px;
+      box-shadow: 0.2px 0.2px 0px rgba(0, 0, 0, 0), 0px 0px 0.2px rgba(13, 13, 13, 0);
+    }
+    input[type=range]::-ms-thumb {
+      box-shadow: 0px 0px 0.5px #000000, 0px 0px 0px #0d0d0d;
+      border: 0px solid #000000;
+      height: 18.7px;
+      width: 18.7px;
+      border-radius: 50px;
+      background: #3072ac;
+      cursor: pointer;
+      height: 11px;
+    }
+    input[type=range]:focus::-ms-fill-lower {
+      background: #84b7e3;
+    }
+    input[type=range]:focus::-ms-fill-upper {
+      background: #DADDe3;
+    }
+    </style>
+        <style type="text/css" data-tag-name="trix-editor">
+            trix-editor:empty:not(:focus)::before {
+                content: attr(placeholder);
+                color: graytext;
+            }
+
+            trix-editor a[contenteditable=false] {
+                cursor: text;
+            }
+
+            trix-editor img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            trix-editor [data-trix-attachment] figcaption textarea {
+                resize: none;
+            }
+
+            trix-editor [data-trix-attachment] figcaption textarea.trix-autoresize-clone {
+                position: absolute;
+                left: -9999px;
+                max-height: 0px;
+            }
+
+            trix-editor [data-trix-attachment][data-trix-mutable] figcaption:empty::before {
+                content: "Add a caption…";
+                color: graytext;
+            }
+
+            trix-editor [data-trix-cursor-target] {
+                display: inline-block !important;
+                width: 1px !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                border: none !important;
+            }
+
+            trix-editor [data-trix-cursor-target=left] {
+                vertical-align: top !important;
+                margin-left: -1px !important;
+            }
+
+            trix-editor [data-trix-cursor-target=right] {
+                vertical-align: bottom !important;
+                margin-right: -1px !important;
+            }
+
+            trix-editor {
+                display: block;
+            }
+        </style>
+        <style type="text/css" data-tag-name="trix-toolbar">
+            trix-toolbar {
+                white-space: nowrap;
+            }
+
+            trix-toolbar .dialog {
+                display: none;
+            }
+
+            trix-toolbar .dialog.active {
+                display: block;
+            }
+
+            trix-toolbar .dialog input.validate:invalid {
+                background-color: #ffdddd;
+            }
+
+            trix-toolbar[native] {
+                display: none;
+            }
+
+            trix-toolbar {
+                display: block;
+            }
+        </style>
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+       integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+       crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+       integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+       crossorigin=""></script>
+        <script src="stylesheet" href="https://unpkg.com/esri-leaflet@2.0.8"></script>
+          <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
+
+        <script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
+
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" media="all" href="{{ url_for('static', filename='../static/application-fd35e84e7e3e74bdedda02b63f900121.css')}}">
+        <link rel="stylesheet" media="all" href="{{ url_for('static', filename='../static/index111.css')}}">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script type="text/x-tmpl" data-name="notification-template">
+            <div class="notification collapsed ">
+                <div><img></div>
+                <div>
+                    <div class="title"></div>
+                    <div class="info">
+                        <i class="fa fa-close btn btn-default"></i>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <title>Anzeige erstellen</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="meinDorf55+">
+        <meta name="description" content="">
+        <meta name="csrf-param" content="authenticity_token">
+        <meta name="csrf-token" content="7MLDaUF6pYeHumYCk0KIH2jKI1ZdqNRfGMBMtYTYlLlFwDdvTKF/mZDxK6ySkrU1T/3G33oJfwMKx+nayS/fcg==">
+        <meta name="msapplication-TileColor" content="#486c1a">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+      <link rel="apple-touch-icon" sizes="57x57" href="../static/Anzeige%20erstellen-Dateien/apple-touch-icon-57x57-31fbe5715f2c4f3758e34fd7d508629cae634a98f21ee10d833dd08da798628a.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../static/Anzeige%20erstellen-Dateien/apple-touch-icon-60x60-eba5fdb2e019c407d39b80ec69fef506d144cecad68e383908fb840151bcffc8.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../static/Anzeige%20erstellen-Dateien/apple-touch-icon-72x72-2c05e3b9fa28f2e45a61e377ac6563e1373285cb063bd638c780cbca498d59a7.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../static/Anzeige%20erstellen-Dateien/apple-touch-icon-76x76-418e8b66ca18ccc418048bc5085acc5e7b20dc9ddc6ae5941ad38b649a1d954d.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../static/Anzeige%20erstellen-Dateien/apple-touch-icon-114x114-caabfe83332b6712764172e8eb8a27e8973d21f855fccc22a0e25cd3eb0a05b4.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../static/Anzeige%20erstellen-Dateien/apple-touch-icon-120x120-31443adc5bc9f5ef7715de9df6fca673934d573e81b1d6cf1c206c4dc7a0cf50.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../static/Anzeige%20erstellen-Dateien/apple-touch-icon-144x144-6424bc80d7d997885afd2abc4ef070f92b84bed7033835e062f2d373bf82f2e2.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../static/Anzeige%20erstellen-Dateien/apple-touch-icon-152x152-ef01b333ad1c5d2cf6f6d371a49ad86ab6c86f09ccbf388f02ca34fc9d83dabb.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/Anzeige%20erstellen-Dateien/apple-touch-icon-180x180-28758079a429d371e74c690ee30efa85375b3724378c3a9139e6749bc605d9e7.png">
+    <link rel="icon" type="image/png" href="../static/Anzeige%20erstellen-Dateien/favicon-32x32-91b14261f36c025441220105db7abf6d69656d7e8db7ff244be44712e1e6c82f.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../static/Anzeige%20erstellen-Dateien/favicon-194x194-1b2cac6246f0297ddabeb2f8b5ee5729434e458f7dcea3c80d52e6de232c4bd8.png" sizes="194x1904">
+    <link rel="icon" type="image/png" href="../static/Anzeige%20erstellen-Dateien//android-chrome-192x192-144392233ccd542bdc0cc6f1e48fe59fa964492cf425102a69ff96cae789ed0e.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="https://meindorf55plus.pi6.fernuni-hagen.de/assets/favicon/favicon-16x16-0512c8a16034b4b116672b1d76febe40f33930c214bdc12cda80960b56802c94.png" sizes="16x16">
+    <link rel="manifest" href="../static/Anzeige%20erstellen-Dateien/manifest-e99c454c179870ed0b9cfca315776d6d8092e9337e9a2829f85c8e721b475b14.json">
+    <link rel="mask-icon" href="../static/Anzeige%20erstellen-Dateien/safari-pinned-tab-8ed6c5f125ddf2df8100f8ec561dc0dbf77594a03cbcdec1b6b57ae22a5a09e9.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../static/Anzeige%20erstellen-Dateien/favicon-1523322c5ec529b29587b8de6830fc8ff31b509932ad96d3316c820d68288a99.ico">
+    <meta name="msapplication-TileColor" content="#486c1a">
+    <meta name="msapplication-TileImage" content="/assets/favicon/mstile-144x144-b096848fa6d97e6de57a4c821f455bac37b6c11e24a0b1f0fb589ee420d69466.png">
+    <meta name="msapplication-config" content="/assets/favicon/browserconfig-60615af684623b9506ce5fa273eaebafd2c7e0bf6c4e06270abb0112e244279f.xml">
+    <meta name="theme-color" content="#ffffff">
+
+      <script type="text/x-tmpl" data-name="notification-template">    <div class="notification collapsed ">  <div><img></div>
+      <div>
+        <div class="title"></div>
+        <div class="info">
+          <i class="fa fa-close btn btn-default"></i>
+          <span></span>
+        </div>
+      </div>
+    </div></script>
+        <style>
+      #map {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+      }
+      html,body{margin: 0; padding: 0}
+    </style>
+    </head>
+
+    <body onwheel ="scrollFunction()" class="without-navs show-help">
+
+        <div class="main-area" oncontextmenu="rightClick()">
+
+            <div class="fixed-top-area"></div>
+            <div class="content" data-scroll-container="1">
+                <main>
+                    <h1 id="titleAnzeige"><div class="inline-help" data-help="
+                        " data-heading="Wn?" data-help-key="help.offers.new"><i onClick="keyDown(anzeigeModal);myFunction('anzeigeModal','anzeigeOK')" class="fa fa-question-circle-o" id="anzeigeHilfe" data-modal-target="#modal"></i></div>
+
+
+
+
+
+
+        <!-- The Modal -->
+        <div id="anzeigeModal" class="modal">
+    <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="anzeigeHilfeTitel">Wie kann ich eine neue Anzeige erstellen?</b></p></h2>
+        </div>
+        <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="6" id="anzeigeHilfeText"><b id="anzeigeHilfeText">Sie wollen eine neue Anzeige anlegen?</b> Dann tragen Sie die zugehörigen Informationen ein und speichern
+            das Ergebnis am Ende ab.</font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="anzeigeHilfeQuestion" >
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="anzeigeFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="anzeigeOK" tabindex="1" class="confirm" style="display: inline-block; box-shadow: 0px 0px 2px rgba(140,212,245,0.8), inset 0px 0px 0px 1px rgba(0,0,0,0.05);">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+                        <!-- The Modal -->
+    <div id="angebotModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="angebotHilfeTitel">Wie kann ich den Anzeigentyp festlegen?</b></p></h2>
+        </div>
+        <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="6" id="angebotHilfeText"><b id="angebotHilfeText">Sie wollen den Anzeigentyp festlegen?</b> Dann sind Sie hier genau richtig!
+            Der Typ der Anzeige legt fest, ob es sich dabei um ein Angebot ("biete") oder ein Gesuch ("suche") handelt. Auch wenn eine Einordnung zunächst einfach erscheint, ist die Zuordnung nicht immer ganz eindeutig:
+    Versetzen Sie sich in die Rolle von Herrn Meier, der gerne mit einem anderen Senior Wanderungen unternehmen möchte. Er könnte sein Anliegen als Suche formulieren: "Ich suche eine Person, die Lust hat, mit mir Wanderungen zu unternehmen." Ebenso könnte er es auch als Angebot beschreiben: "Ich biete Wanderungen für Senioren an."
+    Wenn Sie also eine Anzeige verfassen, sollten Sie sich überlegen, ob Sie eher Menschen suchen, die Ihnen etwas Gutes tun wollen, oder ob es Ihnen um Menschen geht, die am ehesten reagieren, wenn sie das Gefühl haben, von Ihnen Hilfe zu erhalten. Am Ende wird es vor allem darum gehen, dass ähnliche Interessen und Bedürfnisse zusammenfinden. Denn das ist des Ziel von Anzeigen in meinDorf55+: Im sozialen Austausch können Sie neue Menschen kennenlernen und ein tragfähiges Netzwerk aufbauen. </font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="angebotHilfeQuestion">
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="angebotFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="angebotOK" tabindex="1" class="confirm">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+                        <!-- The Modal -->
+    <div id="themaModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="themaHilfeTitel">Wie kann ich ein Thema eintragen?</b></p></h2>
+        </div>
+          <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="6" id="themaHilfeText"><b id="themaHilfeText">Sie wollen ein Thema eintragen?</b> Dann sind Sie hier genau richtig! Wählen Sie ansprechende Worte, die das Thema beschreiben und die Neugierde bei den anderen Mitgliedern von meinDorf55+ wecken! </font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="themaHilfeQuestion">
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="themaFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="themaOK" tabindex="1" class="confirm" style="display: inline-block; box-shadow: 0px 0px 2px rgba(140,212,245,0.8), inset 0px 0px 0px 1px rgba(0,0,0,0.05);">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+                        <!-- The Modal -->
+    <div id="inhaltModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="inhaltHilfeTitel">Wie kann ich den Inhalt eintragen?</b></p></h2>
+        </div>
+        <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="6" id="inhaltHilfeText"><b id="inhaltHilfeText">Sie wollen einen Beschreibungstext eintragen?</b> Dann benutzen Sie dieses Textfeld um mehr Informationen zu geben und Ihr Anliegen ausführlicher zu beschreiben.</font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="inhaltHilfeQuestion">
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="inhaltFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="inhaltOK"tabindex="1" class="confirm" style="display: inline-block; box-shadow: 0px 0px 2px rgba(140,212,245,0.8), inset 0px 0px 0px 1px rgba(0,0,0,0.05);">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+                        <!-- The Modal -->
+    <div id="schlagworteModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="schlagworteHilfeTitel">Wie verwende ich Schlagworte?</b></p></h2>
+        </div>
+          <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 130%"><font size="6" id="schlagworteHilfeText"><b id="schlagworteHilfeText">Sie wollen Schlagworte verwenden?</b> Dann überlegen Sie sich aussagekräftige Begriffe, die Sie als Schlagworte verwenden können. <br>
+              <b id="schlagworteHilfeText" >Sie wollen einzelne Schlagworte eingeben?</b> Dann trennen Sie die einzelnen Schlagworte mit einem Kommata.
+    <br><b id="schlagworteHilfeText">Sie wollen zwei Worte als ein Schlagwort verwenden?</b> Dann setzen Sie an das Ende des zweiten Worts das Komma, so dass es als ein Schlagwort akzeptiert wird. Gleiches können Sie auch für längere Wortfolgen machen. </font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="schlagworteHilfeQuestion">
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="schlagworteFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="schlagworteOK"tabindex="1" class="confirm" style="display: inline-block; box-shadow: 0px 0px 2px rgba(140,212,245,0.8), inset 0px 0px 0px 1px rgba(0,0,0,0.05);">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+                        <!-- The Modal -->
+    <div id="fotoModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="fotoHilfeTitel">Foto einfügen</b></p></h2>
+        </div>
+        <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="6" id="fotoHilfeText">
+    „Ein Bild sagt mehr als tausend Worte”
+    Nutzen Sie die Macht der Bilder und Fotos und verleihen Sie Ihrem Inhalt eine ganz spezielle Note!
+            Bitte beachten Sie, dass für die Vorschauansicht Ihres Beitrags ein mittlerer Bereich im Seitenverhältnis 4 zu 3 aus Ihrem Bild ausgeschnitten wird. Das gesamte Bild kann in der Detailansicht Ihres Beitrags durch Klick auf das Bild angeschaut werden.</font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="fotoHilfeQuestion">
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="fotoFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="fotoOK" tabindex="1" class="confirm" style="display: inline-block; box-shadow: 0px 0px 2px rgba(140,212,245,0.8), inset 0px 0px 0px 1px rgba(0,0,0,0.05);">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+                        <!-- The Modal -->
+    <div id="ortModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="ortHilfeTitel">Wie kann ich die Reichweite einstellen?</b></p></h2>
+        </div>
+          <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="5" id="ortHilfeText"><b id="ortHilfeText">Sie wollen die Reichweite der Anzeige einstellen? </b> Dann sind Sie hier genau richtig!
+              <br>
+    Stellen Sie sich vor, sie haben einen Kuchen gebacken und möchten einigen Menschen aus Ihrer Nachbarschaft eine Freude machen. Deshalb laden Sie auf meinDorf55+ zu einem gemeinsamen Kaffeetrinken ein. Sicher freuen Sie sich, wenn einige Menschen kommen. Aber wenn auf einmal der gesamte Rhein-Lahn-Kreis bei Ihnen vor der Tür steht, kann die Einladung dann doch zum Problem werden.<br><br>
+              In meinDorf55+ können Sie deshalb die Reichweite Ihrer Anzeige reduzieren. Legen Sie hierzu zunächst den Ort des Angebots fest. Der Ort kann zum Beispiel Ihr Zuhause sein, es kann aber auch der Ort sein, an dem Sie etwas unternehmen wollen.Der Ort kann zum Beispiel Ihr Zuhause sein, es kann aber auch der Ort sein, an dem Sie etwas unternehmen wollen oder es ist ein Treffpunkt (z.B. ein Wanderparkplatz, wenn Sie gemeinsam wandern wollen). <br>
+              Klicken Sie für die Adresssuche auf das Suchymbol <i class="fa fa-search"></i> auf der Karte. So öffnen Sie ein kleines Textfeld. Hier können Sie die Adresse des Angebots oder des Treffpunkts eingeben. Schon ab zwei Buchstaben werden Ihnen mögliche Adressen auf dem Menu angezeigt. Wählen Sie aus dieser Liste  die Adresse aus, die Sie suchen. Die von Ihnen gewählte Adresse wird auf der Karte mit einem blauen Marker <i class="fa fa-map-marker"></i>  markiert und auf dem Textfeld unter der Karte angezeigt. Sie können die Landkarte über das <i class="fa fa-plus"></i> Symbol vergrößern und über das <i class="fa fa-minus"></i> Symbol verkleinern. Mit einem Klick auf den Marker können Sie ihn sowie die Adressangabe auf dem Textfeld unten wieder entfernen.
+              <br><br>
+              Noch ein Tipp: Manchmal ist das Suchergebnis nicht perfekt, da meinDorf55+ nicht alle Straßen und Hausnummern kennt. Im Zweifelsfall können Sie es nur mit dem Ortsnamen versuchen oder Sie lassen einfach einmal die Hausnummer weg. Sobald Sie einen Treffer gefunden haben, können Sie den Ort in der Landkarte vergrößern und genau positionieren. Ansonsten können Sie die Adresse oder den Treffpunkt einfach in das Textfeld unter der Karte eingeben. </font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="ortHilfeQuestion">
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="ortFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="ortOK"tabindex="1" class="confirm" style="display: inline-block; box-shadow: 0px 0px 2px rgba(140,212,245,0.8), inset 0px 0px 0px 1px rgba(0,0,0,0.05);">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+                      <!-- The Modal -->
+    <div id="gueltigModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="gueltigHilfeTitel">Wiegebe ich ein Verfallsdatum vor?</b></p></h2>
+        </div>
+          <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="6" id="gueltigHilfeText"><b id="gueltigHilfeText">Sie wollen ein Verfallsdatum für eine Anzeige vorgeben?</b> Dann wählen Sie das entsprechende Feld aus und stellen das gewünschte Datum über den angezeigten Kalender ein. <br>
+    Hierdurch können Sie selbst entscheiden, ab wann eine Anzeige veraltet ist und nicht mehr angezeigt werden soll.<br> Suchen Sie bspw. eine Person, die Ihre frisch gepflückten Erdbeeren für einen Obstkuchen gebrauchen kann, dann sollten Sie das beim Verfallsdatum berücksichtigen.
+    <br>Suchen Sie bspw. für den bevorstehenden Winter eine Hilfe für die Reinigung des Bürgersteigs, dann sollte die Anzeige im Frühling - hoffentlich - nicht mehr relevant sein. Auch hier können Sie ein entsprechendes Verfallsdatum eintragen. </font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="gueltigHilfeQuestion">
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="gueltigFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="gueltigOK"tabindex="1" class="confirm" style="display: inline-block; box-shadow: 0px 0px 2px rgba(140,212,245,0.8), inset 0px 0px 0px 1px rgba(0,0,0,0.05);">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+
+                        <!-- The Modal -->
+    <div id="chiffreModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="chiffreHilfeTitel">Wie kann ich eine Chiffre-Anzeige aufgeben?</b></p></h2>
+        </div>
+          <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="6" id="chiffreHilfeText"><b id="chiffreHilfeText">Sie wollen eine Chiffre-Anzeige aufgeben?</b>Dann setzen Sie die Markierung beim Eintrag "Chiffre-Anzeige". Dadurch können Sie Ihre wahre Identity verschleiern. <br>
+              <b id="chiffreHilfeText">Sie wollen eine Chiffre-Anzeige in eine normale Anzeige umwandeln?</b> Dann entfernen Sie die Markierung beim Eintrag "Chiffre-Anzeige".
+     <br>Hinweis: Nachdem Sie gespeichert haben, wird Ihr Name bei der Anzeige sichtbar.</font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="chiffreHilfeQuestion">
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="chiffreFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="chiffreOK"tabindex="1" class="confirm" style="display: inline-block; box-shadow: 0px 0px 2px rgba(140,212,245,0.8), inset 0px 0px 0px 1px rgba(0,0,0,0.05);">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+
+                        <!-- The Modal -->
+    <div id="vertreterModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="vertreterHilfeTitel">Wie kann ich verdeutlichen, dass ich lediglich als Stellvertreter auftrete?</b></p></h2>
+        </div>
+          <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="6" id="vertreterHilfeText"><b id="vertreterHilfeText">Sie wollen als Stellvertreter einer Anzeigen auftreten?</b> Dann setzen Sie die Markierung beim Eintrag "in Vertretung". Hierdurch können Sie bspw. für Ihre Nachbarschaft aktiv werden, die selbst noch keinen Zugang zu meinDorf55+ besitzen. <br>
+    <b id="vertreterHilfeText">Sie wollen nicht mehr als Stellvertreter einer Anzeigen auftreten?</b> Dann entfernen Sie die Markierung beim Eintrag "in Vertretung". </font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="vertreterHilfeQuestion">
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="vertreterFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="vertreterOK"tabindex="1" class="confirm" style="display: inline-block; box-shadow: 0px 0px 2px rgba(140,212,245,0.8), inset 0px 0px 0px 1px rgba(0,0,0,0.05);">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+            <!-- The Modal -->
+    <div id="sichtbarkeitModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modalheader"  >
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="sichtbarkeitHilfeTitel">Wie kann ich die Sichtbarkeitsstufen für Anzeigen einstellen?</b></p></h2>
+        </div>
+        <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="6" id="sichtbarkeitHilfeText"><b id="sichtbarkeitHilfeText">Sie wollen die Sichtbarkeitsstufen für Anzeigen einstellen? </b>Dann sind Sie hier genau richtig! <br>
+    Sie haben eine Idee für eine Anzeige, möchten die Anzeige aber zunächst einmal nur als Entwurf speichern oder im kleinen Kreis besprechen? Dann sollten Sie die Sichtbarkeit der Anzeige an Ihre Bedürfnisse anpassen. <br>
+    Sie können die folgenden Sichtbarkeitsstufen für Anzeigen wählen:  <ul style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%">
+    <li><b id="sichtbarkeitHilfeText">Nur für Sie</b>: Die Anzeige bleibt ein Entwurf, den nur Sie sehen können. So können Sie die Anzeige
+    "reifen" lassen und erst dann veröffentlichen, wenn Sie damit glücklich sind.
+    <br>
+    Diese Sichtbarkeitsstufe
+    kann auch noch einen zweiten Zweck erfüllen: Indem Sie eine Anzeige zunächst nur für sich selbst erstellen,
+    können Sie – nachdem die Anzeige gespeichert ist – von der Intelligenz von meinDorf55+ profitieren. Denn das
+    System sucht auch für private Anzeigen andere Anzeigen, die dazu passen können. Stellen Sie sich vor, Sie sind
+    auf der Suche nach einer Skatrunde. Sie könnten den Bereich Handeln natürlich auch mit der Suchfunktion direkt
+    durchsuchen. Aber können Sie sich sicher sein, dass dann auch eine passende Skatrunde gefunden wird? Indem Sie
+    Ihre Wünsche an eine Skatrunde formulieren – zum Beispiel, dass beim Spielen auch zünftig gegessen wird – geben
+    Sie der meinDorf55+-App eine Chance, gut passende Skatrunden für Sie zu finden. Schauen Sie deshalb bei privaten
+    Anzeigen auch immer wieder einmal in den Bereich "Ähnliche Inhalte".</li>
+    <li><b>Nur für Verantwortliche und Teilnehmende des Projekts</b>: Vielleicht fragen Sie sich, was Anzeigen mit
+    Projekten zu tun haben? Nun, Mitarbeitende in einem Projekt können vom Projekt aus eine Anzeige schreiben. Diese
+    kann dann von allen Mitarbeitenden des Projekts bearbeitet werden. Ist sie zudem nur für Menschen mit Bezug zum
+    Projekt sichtbar, so richtet sich die Anfrage ganz konkret nur an die Teilnehmenden und die Verantwortlichen im
+    Projekt. Wenn Sie also für Ihr nächstes Treffen im Projekt nach Menschen suchen, die einen Kuchen backen können,
+    so könnten Sie eine Anzeige aufgeben und diese auf den Personenkreis der Projektteinehmenden und der
+    Projektverantwortlichen beschränken.</li>
+    <li><b id="sichtbarkeitHilfeText">Für alle Mitglieder von meinDorf55+</b>: Der Regelfall wird sein, dass Anzeigen für alle Mitglieder von
+    meinDorf55+ sichtbar sind. Das Anliegen der Anzeige soll ja möglichst viele Menschen begeistern und zu
+    Reaktionen anregen. Beachten Sie, dass Menschen in meinDorf55+ zunächst ihren Wohnort bestätigen lassen müssen,
+    bevor sie Anzeigen sehen können.</li>
+    </ul></font></p></div>
+      <div><div class="panel panel-default" id="feedback-form">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="sichtbarkeitHilfeQuestion">
+            <i class="fa fa-question-circle"></i> Waren die Informationen für Sie hilfreich? </h4>
+        </div>
+        <div class="panel-body">
+          <form class="feedback" id="new_feedback" role="form" action="/feedbacks" method="post" accept-charset="UTF-8" data-remote="true"><input name="utf8" type="hidden" value="?">
+            <div class="form-group"><textarea name="feedback[comment]" class="form-control" id="sichtbarkeitFeedback" placeholder="Sie können uns hier Ihre Anmerkungen mitteilen."></textarea></div>
+            <input name="feedback[context]" id="feedback_context" type="hidden" value="/offers/new">
+            <input name="feedback[help_key]" id="feedback_help_key" type="hidden" value="help.offers.new">
+           </form>      <div class="hidden response">
+            Vielen Dank für Ihr Feedback!
+          </div>
+        </div>
+      </div>
+
+        <div class="sa-button-container">
+          <button tabindex="2" class="cancel" style="display: none; box-shadow: none;">Cancel</button>
+          <div class="sa-confirm-button-container">
+            <button id ="sichtbarkeitOK"tabindex="1" class="confirm" style="display: inline-block; box-shadow: 0px 0px 2px rgba(140,212,245,0.8), inset 0px 0px 0px 1px rgba(0,0,0,0.05);">OK</button><div class="la-ball-fall">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+   <div id="aufgabeModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content" >
+
+        <div class="modalheader"  >
+    <button id = "closeX" onclick="closeAufgabe()">
+                X
+            </button>
+            <h2 ><p style="font-size: 36px; color:   #585858  ; block; line-height: 70%"><b id="aufgabeTitel">Aufgabenstellung</b></p></h2>
+        </div>
+        <div><p style="text-align: left; font-size: 27px; color:   #808080  ; block; line-height: 110%"><font size="5" id="aufgabeText">
+   Stellen Sie sich vor, Sie wollen Ihrer Tante helfen, die selbst kein Account auf <i>meinDorf55+</i> hat und die Einladung für ihr  Hoffest auf <i>meinDorf55+</i> publik machen möchte. Sie werden für sie eine Anzeige erstellen. Bitte überlegen Sie sich neben passendem Titel und Beschreibungstext auch, wer die Einladung sehen darf. Dazu hat Ihre Tante Ihnen gesagt, „Ich möchte nicht plötzlich den ganzen Bezirk vor unserer Tür haben. Wir wollen,dass 200-300 Menschen aus der Nachbarschaft kommen“. Ihre Tante hat Sie auch darum gebeten, mit Ihrem Smartphone ein Foto vom Hof zu machen und das auf die Anzeige zu setzen. Ihnen ist außerdem wichtig, dass die Anzeige anonym ist und Ihre Identität anonym bleibt. Das Ausfüllen des restlichen Formulars ist komplett freiwillig. Bitte denken Sie daran, dass Sie bei Schwierigkeiten jederzeit die Aufgabe abbrechen können.
+
+<br><br>
+
+Hinweis: Zum Hochladen eines Bildes können Sie gern unten auf den mit "Hoffest.jpg" beschrifteten Button klicken und die genannte  Bilddatei herunterladen. Dieses Bild können Sie dann an passender Stelle auf der Benutzerschnittstelle hochladen. Sie können sich selbstverständlich auch ein beliebiges Foto aus Ihren Fotoalben bzw. Internet aussuchen und hochladen. Natürlich können Sie das Foto hochladen komplett überspringen bzw. die Aufgabe abbrechen, wenn Sie Schwierigkeiten haben.
+<br><br>
+
+<a href="{{url_for('static', filename='Hoffest.jpg')}}" download>
+<button type="button" id="hoffestbildBttn" value="weiter"  style="font-size : 15px; left:5.7%;top:85%; width: 9%; height: 36px; border-radius: 7px">Hoffest.jpg</button></a>
+<br><br></font></p></div>
+
+    </div>
+    </div>
+
+                    
+
+                        Anzeige erstellen</h1>
+                    <form class="offer form-horizontal" role="form" id="new_offer" data-form-for="new_offer" enctype="multipart/form-data" accept-charset="UTF-8" data-remote="true" method="post">
+                        <input name="utf8" type="hidden" value="?">
+
+                        <input type="hidden" name="offer[group_activity_id]" id="offer_group_activity_id">
+                        <div class="form-group offer-selector">
+                            <label class="control-label col-md-4 col-lg-3" for="offer_offer" id=Angebotlbl>
+
+
+                                    <div class="inline-help form-label" ><i onClick="keyDown(angebotModal);myFunction('angebotModal','angebotOK')" class="fa fa-question-circle-o" id="AngebotHilfe"></i>
+
+
+
+                                </div>Angebot</label>
+
+                            <div class="col-md-8 col-lg-9">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-default" id="offer_offer_true">
+                                        <input type="radio" value="true" name="offer[offer]" ><i id="bieteIcon" class="fa fa-gift"></i> Biete</label>
+                                    <label class="btn btn-default active" id="offer_offer_false">
+                                        <input type="radio" value="false" checked="checked" name="offer[offer]" ><i id ="suchIcon" class="fa fa-question"></i> Suche</label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                           <label class="control-label col-md-4 col-lg-3 required" for="offer_title" id ="themaLbl" >
+                                <div class="inline-help form-label" data-help="&lt;b&gt;Sie wollen ein
+    " data-heading="Wie kann ich ein Thema eintragen?" data-help-key="offers.title"><i onClick="keyDown(themaModal);myFunction('themaModal','themaOK')" class="fa fa-question-circle-o" id="themaHilfe"></i></div>Thema</label>
+                            <div class="col-md-8 col-lg-9">
+    <textarea class="longInput" cols="42" rows="1" id="themaTextfield"></textarea>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-lg-3" for="offer_content" id="inhaltLbl">
+                                <div class="inline-help form-label" data-help="&lt;b&gt;Sie
+      &lt;/div&gt;
+    " data-heading="Wie kann ich den Inhalt einer Anzeigen eingeben bzw. bearbeiten?" data-help-key="offers.content"><i onClick="keyDown(inhaltModal);myFunction('inhaltModal','inhaltOK')" class="fa fa-question-circle-o" id="inhaltHilfe"></i></div>Inhalt</label>
+                            <div class="col-md-8 col-lg-9">
+
+    <textarea class="longInput" cols="42" rows="4" id="inhaltTextfield"></textarea>
+                                                    </div>
+
+
+                        </div>
+
+
+
+    <div class="form-group">
+                            <label class="control-label col-md-4 col-lg-3" for="offer_tag_list" id="schlagworteLbl">
+                                <div class="inline-help form-label" data-help="&lt;b&gt;
+    " data-heading="Wie verwende ich Schlagworte?" data-help-key="offers.tag_list"><i onClick="keyDown(schlagworteModal);myFunction('schlagworteModal','schlagworteOK')" class="fa fa-question-circle-o" id="schlagworteHilfe"></i></div>Schlagworte</label>
+                            <div class="col-md-8 col-lg-9">
+                                <textarea class="longInput" cols="42" rows="1" id="schlagworteTextfield"></textarea>
+      </div>
+                        </div>
+
+
+     <div class="form-group">
+        <label class="control-label col-md-4 col-lg-3" for="photo" id="FotoLbl">
+            Foto anfügen
+            <div class="inline-help form-label" data-help="&amp;bdquo;Ein
+    " data-heading="Foto einfügen" data-help-key="offers.photo"><i onClick="keyDown(fotoModal);myFunction('fotoModal','fotoOK')" class="fa fa-question-circle-o" id="FotoHilfe"></i></div>
+        </label>
+                 <div class="col-md-8 col-lg-9">
+
+        <div class="row fileinput-control">
+
+            <img id="imgPreview"  src="../static/default.png" width="500px" height="360px" style="padding-left:15px;" />
+            <br/>
+            <input type="file" id="image" style="display: none;" />
+            <!--<input type="hidden" style="display: none" value="0" name="remove"remove">-->
+
+
+            <a href="javascript:changeProfile()">
+                <div class="file-btns">
+                    <span class="btn btn-default btn-file" id="bildBttn">
+                        <i title="Bild auswählen" class="fa fileinput-new fa-file-image-o" id="fotoIcon"></i></span></div>
+            </a>
+            <a id="removeBttnFrame" href="javascript:removeImage()">
+                <div id="btnDeletePhoto" class="removeBttnClass" style="display: none"><i id ="deleteIcon" class="fa fa-trash-o"></i></div>
+            </a>
+            <div class="col-sm-6">
+                <textarea class="form-control copyright" placeholder="Geben Sie hier die Bildquelle an: Foto­graf, Lizenz, ...
+    Ohne Quellen­an­ga­ben kann das Bild nicht angezeigt werden.
+    " name="offer[photo_copyright]" id="offer_photo_copyright"></textarea>
+                <div class="fileinput-description"></div>
+            </div>
+                     </div>
+        </div>
+    </div>
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-lg-3" for="offer_location" id="ortLbl">
+                                <div class="inline-help form-label" data-help="&lt;b&gt;Sie
+      &lt;/div&gt;
+    " data-heading="Wie kann ich die Reichweite der Anzeige einstellen?" data-help-key="offers.location"><i onClick="keyDown(ortModal);myFunction('ortModal','ortOK')" class="fa fa-question-circle-o" id="ortHilfe"></i></div>Ort</label>
+                            <div class="col-md-8 col-lg-9">
+                                                             <div id="mapid" style="width: 1287px; height: 300px; position: relative; outline: none;" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
+        <div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
+            <div class="leaflet-pane leaflet-tile-pane">
+                <div id="zoomOut" class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                    <div id="zoomOut" class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4093/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(56px, -91px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4094/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(312px, -91px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4093/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(56px, 165px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4094/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(312px, 165px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4092/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-200px, -91px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4095/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(568px, -91px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4092/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-200px, 165px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4095/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(568px, 165px, 0px); opacity: 1;"></div>
+                </div>
+            </div>
+            <div class="leaflet-pane leaflet-shadow-pane"><img src="https://unpkg.com/leaflet@1.5.1/dist/images/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" alt="" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(300px, 247px, 0px);"></div>
+            <div class="leaflet-pane leaflet-overlay-pane">
+                <svg pointer-events="none" class="leaflet-zoom-animated" width="720" height="480" viewBox="-60 -40 720 480" style="transform: translate3d(-60px, -40px, 0px);">
+                    
+                </svg>
+            </div>
+           
+            <div class="leaflet-pane leaflet-tooltip-pane"></div>
+            <div class="leaflet-pane leaflet-popup-pane">
+                <div class="leaflet-popup  leaflet-zoom-animated" style="opacity: 1; transform: translate3d(301px, 213px, 0px); bottom: -7px; left: -57px;">
+                    
+                    <div class="leaflet-popup-tip-container">
+                        <div class="leaflet-popup-tip"></div>
+                    </div></div>
+            </div>
+            <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.04805e+06px, 697379px, 0px) scale(4096);"></div>
+        </div>
+        <div class="leaflet-control-container" id="zoom">
+            <div class="leaflet-top leaflet-left" >
+                <a id="zoomIn" class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">−</a>
+            </div>
+            <div class="leaflet-top leaflet-right"></div>
+            <div class="leaflet-bottom leaflet-left"></div>
+            <div class="leaflet-bottom leaflet-right">
+                <div class="leaflet-control-attribution leaflet-control"><a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a></div>
+            </div>
+        </div>
+        <div id="zoomIn" class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);">
+            <div id="zoomIn" class="leaflet-pane leaflet-tile-pane">
+                <div id="zoomIn" class="leaflet-layer " style="z-index: 1; opacity: 1;">
+                    <div id="zoomIn" class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4400/2686.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(124px, 4px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4400/2685.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(124px, -252px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4399/2686.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-132px, 4px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4401/2686.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(380px, 4px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4400/2687.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(124px, 260px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4399/2685.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-132px, -252px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4401/2685.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(380px, -252px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4399/2687.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(-132px, 260px, 0px); opacity: 1;"><img alt="" role="presentation" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4401/2687.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" class="leaflet-tile leaflet-tile-loaded" style="width: 256px; height: 256px; transform: translate3d(380px, 260px, 0px); opacity: 1;"></div>
+                </div>
+            </div>
+            <div class="leaflet-pane leaflet-shadow-pane"><img src="https://unpkg.com/leaflet@1.5.1/dist/images/marker-shadow.png" class="leaflet-marker-shadow leaflet-zoom-animated" alt="" style="margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(-78224px, 9814px, 0px);"></div>
+            <div class="leaflet-pane leaflet-overlay-pane">
+                <svg pointer-events="none" class="leaflet-zoom-animated" width="720" height="480" viewBox="-60 -40 720 480" style="transform: translate3d(-60px, -40px, 0px);">
+                    <g>
+                        <path class="leaflet-interactive" stroke="red" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#f03" fill-opacity="0.5" fill-rule="evenodd" d="M0 0"></path>
+                        <path class="leaflet-interactive" stroke="#3388ff" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#3388ff" fill-opacity="0.2" fill-rule="evenodd" d="M0 0"></path>
+                    </g>
+                </svg>
+            </div>
+            <div class="leaflet-pane leaflet-marker-pane"><img src="https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png" class="leaflet-marker-icon leaflet-zoom-animated leaflet-interactive" alt="" tabindex="0" style="margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(-78224px, 9814px, 0px); z-index: 9814;"></div>
+            <div class="leaflet-pane leaflet-tooltip-pane"></div>
+            <div class="leaflet-pane leaflet-popup-pane"></div>
+            <div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.12658e+06px, 687812px, 0px) scale(4096);"></div>
+        </div>
+        <div class="leaflet-control-container">
+               <a  id="zoomIn"  class="leaflet-control-zoom-in" href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out" role="button" aria-label="Zoom out">−</a>
+            <div class="leaflet-top leaflet-right"></div>
+            <div class="leaflet-bottom leaflet-left"></div>
+            <div  class="leaflet-bottom leaflet-right">
+                <div class="leaflet-control-attribution leaflet-control"><a id ="leafletBottomRight" href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a></div>
+            </div>
+        </div>
+    </div>
+                                <script>
+
+        var mymap = L.map('mapid').setView([52.515803012883595,13.38958740234375
+              ], 15);
+
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            id: 'mapbox.streets'
+        }).addTo(mymap);
+                                                                        var searchControl = new L.esri.Controls.Geosearch().addTo(mymap);
+
+                var results = new L.LayerGroup().addTo(mymap);
+                  searchControl.on('results', function(data){
+                    results.clearLayers();
+                    for (var i = data.results.length - 1; i >= 0; i--) {
+                      results.addLayer(L.   marker(data.results[i].latlng).addEventListener('click', function(e){
+                      results.clearLayers();
+                          var mData1=",removedMarker,mapid,"+Date.now()+",,,,,"
+fetchFunction(mData1);   
+
+                      }))
+                    }
+                      document.getElementById('ortTextfield').value=data.results[0].text;
+                      var l=String(document.getElementById("ortTextfield").value.length);
+  var mData2=",mapAddress,ortTextfield,"+Date.now()+",,"+l+",,,"
+                        fetchFunction(mData2);   
+                  });
+
+    a= mymap.getZoom();
+                                    mymap.addEventListener('zoomend', function(e){
+                                         if (mymap.getZoom()<a)
+                          var mData3=",clickedOn,zoomOut,"+Date.now()+",,,,,"
+    else                           var mData3=",clickedOn,zoomIn,"+Date.now()+",,,,,"
+
+   a= mymap.getZoom()      
+                                                            fetchFunction(mData3);   
+})
+
+
+    </script>
+
+                                <div >
+                                    <div style="position: relative;">
+
+                                        <div >
+
+
+                                            <div >
+                                                <div >
+                                                    <br>
+
+
+    <textarea class="longInput" cols="98.5" rows="1" id="ortTextfield"></textarea></div>
+                                                <div  class="slidecontainer" style="position: relative">
+
+
+    <span class="dot" id="slider1" ></span>
+    <span class="dot" id="slider2"></span>
+    <span class="dot" id="slider3"></span>
+    <span class="dot" id="slider4"></span>
+    <span class="dot" id="slider5"></span>
+    <span class="dot" id="slider6"></span>
+    <span class="dot" id="slider7"></span>
+    <span class="dot" id="slider8"></span>
+    <span class="dot" id="slider9"></span>
+    <span class="dot" id="slider10"></span>
+    <input style="position: absolute" type="range" min="0" max="9" value="7" step="1" class="slider" id="mySlider">
+    </div>
+                                               <div id="sliderFenster" class="slider-container form-control">  <label id= "radiusLbl" class= "entfernung"  style=" background-color: transparent; border: none; position: absolute; top: 81.3%; left: 0.3%; font-size : 19px; width: 30%; height: 10">Region mittel()</label> </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-lg-3" for="offer_expiration_date" id="gueltigLbl">
+                                <div class="inline-help form-label" data-help="&lt;b&gt;Sie wollen
+    " data-heading="Wie gebe ich ein Verfallsdatum für eine Anzeige vor?" data-help-key="offers.expiration_date"><i  onClick="keyDown(gueltigModal);myFunction('gueltigModal','gueltigOK')"  class="fa fa-question-circle-o" id="gueltigHilfe"></i></div>Gültig bis</label>
+                            <div class="col-md-8 col-lg-9">
+        <input type="date" name="trip-start" id="gueltigTextfield" value="">
+
+                  </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-lg-3" id="chiffreLbl">
+                                <div class="inline-help form-label" data-help="&lt;b&gt;Sie w
+      &lt;/div&gt;
+    " data-heading="Wie kann ich eine Chiffre-Anzeige aufgeben?" data-help-key="offers.secret_author"><i onClick="keyDown(chiffreModal);myFunction('chiffreModal','chiffreOK')"  class="fa fa-question-circle-o" id="chiffreHilfe"></i></div>Chiffre-Anzeige</label>
+                            <div class="col-md-8 col-lg-9">
+                                <div class="checkbox">
+                                    <input type="checkbox"  name="offer[secret_author]" id="chiffreCheckbox">
+                                    <label for="chiffreCheckbox" id="chiffreCheckboxLbl">Chiffre-Anzeige</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-lg-3"  id="vertreterLbl">
+                                <div class="inline-help form-label" data-help="&lt;b&gt;Sie
+      &lt;/div&gt;
+    " data-heading="Wie kann ich verdeutlichen, dass ich lediglich als Stellvertreter auftrete?" data-help-key="offers.deputy"><i onClick="keyDown(vertreterModal);myFunction('vertreterModal','vertreterOK')"  class="fa fa-question-circle-o" id="vertreterHilfe"></i></div>in Vertretung</label>
+                            <div class="col-md-8 col-lg-9">
+                                <div class="checkbox">
+                                    <input name="offer[deputy]" type="hidden" value="0">
+                                    <input type="checkbox" value="1" name="offer[deputy]" id="vertreterCheckbox">
+                                    <label for="vertreterCheckbox"  id="vertreterCheckboxLbl">in Vertretung</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="control-label col-md-4 col-lg-3" for="offer_visibility"  id=""sichtbarkeitLbl>
+                                <div class="inline-help form-label" data-help-key="offers.visibility"><i onClick="keyDown(sichtbarkeitModal);myFunction('sichtbarkeitModal','sichtbarkeitOK')"  class="fa fa-question-circle-o" id="sichtbarkeitHilfe"></i></div>Sichtbarkeit</label>
+                            <div class="col-md-8 col-lg-9">
+                                <div class="radio">
+                                    <input type="radio" value="author_can_see" name="offer[visibility]" id="offer_visibility_author_can_see">
+                                    <label for="offer_visibility_author_can_see" id="SichtbarfuerSie">nur für Sie</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" value="community_can_see" checked="checked" name="offer[visibility]" id="offer_visibility_community_can_see">
+                                    <label for="offer_visibility_community_can_see"id="SichtbarfuerAlle">für alle Mitglieder von meinDorf55+</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="as-side-bar">
+                            <a class="btn btn-default btn-cancel" href="{{ url_for( 'Aufgabe3_geschafft' ) }}" id="abbrechenSide"><i class="fa fa-arrow-left"></i> Abbrechen</a>
+                            <a class="btn btn-default btn-save" href="{{ url_for( 'Aufgabe3_geschafft' ) }}" id ="speichernSide"><i class="fa fa-check"></i> Speichern</a>
+                         <br><br><br><br><br><br>
+                            <a><button type="button" id="aufgabeBttn" value="Aufgabe" onclick= "myFunction('aufgabeModal','');keyDown(aufgabeModal)" style ="border: none;color: darkgrey; font-size: 20px ">Aufgabe</button>
+                     </a>
+                        </div>
+                        <div class="actions"> <a class="btn btn-default" href="{{ url_for( 'Aufgabe3_geschafft' ) }}" id ="abbrechen" ><i id="abbrechenIcon" class="fa fa-arrow-left"></i> Abbrechen</a>
+                            <a class="btn btn-default"  href="{{ url_for( 'Aufgabe3_geschafft' ) }}" id ="speichern"><i id="speichernIcon" class="fa fa-check"></i> Speichern</a>
+                        </div>
+
+                    </form>
+                </main>
+            </div>
+        </div>
+
+        <div class="notifications">
+        </div>
+
+
+        <script src="{{ url_for('static', filename='script3.js')}}" data-turbolinks-track="reload"></script>
+        <script type=text/javascript src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+
+    </body>
+
+    </html>
