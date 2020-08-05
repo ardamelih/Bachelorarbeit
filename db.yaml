@@ -1,0 +1,5 @@
+mysql_host: 'localhost'
+mysql_user: 'root'
+mysql_password: 'my password'
+mysql_db: 'meindorfapp'
+mysql_auth_plugin: 'mysql_native_password'
