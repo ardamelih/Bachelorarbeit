@@ -2,5 +2,5 @@ This Bachelor Thesis offers the prototype of a user data tracking service on a w
 was produced and a tracking service was developed and embedded in the clone's script. There are three identical examples of the cloned Page: 
 Aufgabe1, Aufgabe2, Aufgabe3, their javascripts are called script1, script2 and script3 respectively. For Validation purposes the cloned page and its embedded
 tracking service was tested on participants who were offered three tasks to perform on the cloned webpage. This is why there are 3 identical pages. The pages
-were serves using Python Flask. The offered tracking service is planned as the first step towards the development a user assistance system. Please refer to the 
+were served using Python Flask. The offered tracking service is planned as the first step towards the development a user assistance system. Please refer to the 
 Bachelor Thesis for a more detailed depiction of the task.
